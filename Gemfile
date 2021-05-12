@@ -11,6 +11,8 @@ gem 'webpacker', '~> 5.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'devise'
+
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -24,10 +26,14 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 3.26'
-  gem 'selenium-webdriver'
+  gem 'rspec-rails'
+  gem 'database_rewinder'
+  gem 'factory_bot_rails'
+  gem 'shoulda-matchers'
+  gem 'capybara'
   gem 'webdrivers'
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
