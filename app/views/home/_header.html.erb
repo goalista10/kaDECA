@@ -6,22 +6,26 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <% if not buyer_signed_in? %>
+        <% if not buyer_signed_in?  and not seller_signed_in?%>
           <li class="nav-item">
-            <%= link_to "Sign Up", home_signup_path, class:"nav-link active" %>  
+            <%= link_to "Sign Up", home_signup_path, class:"nav-link active" %>
           </li>
-
           <li class="nav-item">
-            <%= link_to "Log In", home_login_path, class:"nav-link active" %>  
+            <%= link_to "Log In", home_login_path, class:"nav-link active" %>
           </li>
-
+        <%elsif buyer_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Sign Out", destroy_buyer_session_path,method: :delete, class:"nav-link active" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Edit Profile", edit_buyer_registration_path, class:"nav-link active" %>
+          </li>
         <%else%>
           <li class="nav-item">
-            <%= link_to "Sign Out", destroy_buyer_session_path,method: :delete, class:"nav-link active" %>  
+            <%= link_to "Sign Out", destroy_buyer_session_path,method: :delete, class:"nav-link active" %>
           </li>
-
           <li class="nav-item">
-            <%= link_to "Edit Profile", edit_buyer_registration_path, class:"nav-link active" %>  
+            <%= link_to "Edit Profile", edit_buyer_registration_path, class:"nav-link active" %>
           </li>
         <%end%>
       </ul>
