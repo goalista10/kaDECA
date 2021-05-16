@@ -7,7 +7,9 @@ class HomeController < ApplicationController
 
   def login; end
 
-  def announcement; end
+  def shop; end
 
-  def index; end
+  def blog; end
+
+  def contact; end
 end

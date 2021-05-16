@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   get 'home/signup'
   get 'home/login'
-  get 'home/announcement'
-  get 'home/index'
+  get 'home/shop'
+  get 'home/blog'
+  get 'home/contact'
+
   root 'home#homepage'
 end
