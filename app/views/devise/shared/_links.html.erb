@@ -23,3 +23,7 @@
     <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), method: :post %><br />
   <% end %>
 <% end %>
+
+<% if resource_name.to_s.include? 'buy' %>
+  <%= link_to "Log in as Seller", new_seller_session_path %><br />
+<% end %>
