@@ -6,4 +6,8 @@ class HomeController < ApplicationController
   def signup; end
 
   def login; end
+
+  def announcement; end
+
+  def index; end
 end

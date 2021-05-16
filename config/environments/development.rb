@@ -33,5 +33,7 @@ Rails.application.configure do
   config.assets.quiet = true
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
+  config.assets.js_compressor = :uglifier
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end
