@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class HomeController < ApplicationController
-  def homepage; end
+  def homepage
+    @feature1 = Feature.find(1)
+  end
 
   def shop; end
 
