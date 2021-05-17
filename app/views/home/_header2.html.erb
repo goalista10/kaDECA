@@ -76,7 +76,13 @@
             </div>
             
             <div class="header__top__right__auth">
+              <%if buyer_signed_in?%>
+              <a href="/buyers/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
+              <% elsif seller_signed_in? %>
+              <a href="/sellers/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
+              <%else%>
               <a href="/buyers/sign_in"><i class="fa fa-user"></i> Login</a>
+              <%end%>
             </div>
           </div>
         </div>

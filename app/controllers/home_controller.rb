@@ -3,8 +3,6 @@
 class HomeController < ApplicationController
   def homepage; end
 
-  def signup; end
-
   def shop; end
 
   def blog; end
