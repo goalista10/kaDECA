@@ -5,8 +5,6 @@ class HomeController < ApplicationController
 
   def signup; end
 
-  def login; end
-
   def shop; end
 
   def blog; end

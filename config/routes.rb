@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   devise_for :buyers
 
   get 'home/signup'
-  get 'home/login'
   get 'home/shop'
   get 'home/blog'
   get 'home/contact'
