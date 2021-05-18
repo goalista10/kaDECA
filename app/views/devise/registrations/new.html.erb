@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="contact__form__title">
-          <h2>Sign Up</h2>
+          <h2>Sign Up <% if resource_name.to_s.include? 'sell' %>as Seller<%end%></h2>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
   </div>
 
   <div class="actions text-center">
-    <%= f.submit "Sign up", class: "site-btn" %>
+    <%= f.button "Sign up", class: "site-btn" %>
   </div>
 <% end %>
     <%= render "devise/shared/links" %>
