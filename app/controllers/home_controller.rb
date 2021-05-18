@@ -2,7 +2,7 @@
 
 class HomeController < ApplicationController
   def homepage
-    @feature1 = Feature.find(1)
+    @all = Feature.all
   end
 
   def shop; end

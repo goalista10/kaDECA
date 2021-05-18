@@ -4,10 +4,12 @@ Rails.application.routes.draw do
   devise_for :sellers
   devise_for :buyers
 
+  resources :product do
+  end
   get 'home/signup'
   get 'home/shop'
   get 'home/blog'
   get 'home/contact'
-
+  get 'shop/product'
   root 'home#homepage'
 end

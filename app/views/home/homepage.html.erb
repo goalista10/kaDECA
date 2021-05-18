@@ -1,4 +1,14 @@
-<h1>HOME</h1>
+  <!-- Title Section Begin -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <div class="breadcrumb__text">
+        <h2>Home</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Title Section End -->
 <!-- Featured Section Begin -->
 <section class="featured spad">
   <div class="container">
@@ -10,127 +20,22 @@
       </div>
     </div>
     <div class="row featured__filter">
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg=<%= image_url "logo.png" %>>
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-share"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#"><%=@feature1.name%></a></h6>
-            <h5>₱<%=sprintf('%.2f', @feature1.cost)%></h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-2.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-share"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
+      <%@all.each do |product|%>
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div class="featured__item">
+            <div class="featured__item__pic set-bg" data-setbg=<%=product.url%>>
+              <ul class="featured__item__pic__hover">
+                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                <li><a href="#"><i class="fa fa-share"></i></a></li>
+                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+              </ul>
+            </div>
+            <div class="featured__item__text">
+              <h6><a href="#"><%=product.name%></a></h6>
+              <h5>₱<%=sprintf('%.2f', product.cost)%></h5>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-3.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-share"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-4.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-share"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-5.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-share"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-6.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-share"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-7.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-share"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-4 col-sm-6">
-        <div class="featured__item">
-          <div class="featured__item__pic set-bg" data-setbg="img/featured/feature-8.jpg">
-            <ul class="featured__item__pic__hover">
-              <li><a href="#"><i class="fa fa-heart"></i></a></li>
-              <li><a href="#"><i class="fa fa-share"></i></a></li>
-              <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
-          </div>
-          <div class="featured__item__text">
-            <h6><a href="#">Crab Pool Security</a></h6>
-            <h5>$30.00</h5>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-  <!-- Featured Section End -->
+      <%end%>
+    </section>
+    <!-- Featured Section End -->
