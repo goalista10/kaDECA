@@ -7,45 +7,46 @@
   <div class="humberger__menu__widget">
     <div class="header__top__right__auth">
       <%if buyer_signed_in?%>
-              <a href="/buyers/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
-              <% elsif seller_signed_in? %>
-              <a href="/sellers/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
-              <%else%>
-              <a href="/buyers/sign_in"><i class="fa fa-user"></i> Login</a>
-              <%end%>
+        <a href="/buyers/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
+      <% elsif seller_signed_in? %>
+        <a href="/sellers/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
+      <%else%>
+        <a href="/buyers/sign_in"><i class="fa fa-user"></i> Login</a>
+      <%end%>
     </div>
   </div>
   <nav class="humberger__menu__nav mobile-menu">
     <ul>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Shop", home_shop_path %></li>
-            <li><a href="#">Pages</a>
-              <ul class="header__menu__dropdown">
-                <li><a href="./shop-details.html">About</a></li>
-                <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                <li><a href="./checkout.html">Check Out</a></li>
-              </ul>
-            </li>
-            <li><a href="/home/blog.html">Announcement</a></li>
-            <li><a href="/home/contact.html">Contact</a></li>
-          </ul>
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Shop", home_shop_path %></li>
+      <li><a href="#">Pages</a>
+        <ul class="header__menu__dropdown">
+          <li><a href="./shop-details.html">About</a></li>
+          <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+          <li><a href="./checkout.html">Check Out</a></li>
+        </ul>
+      </li>
+      <li><a href="/home/blog.html">Announcement</a></li>
+      <li><a href="/home/contact.html">Contact</a></li>
+    </ul>
   </nav>
   <div id="mobile-menu-wrap"></div>
-  <div class="header__top__right__social">
-    <a href="#"><i class="fa fa-facebook"></i></a>
-    <a href="#"><i class="fa fa-twitter"></i></a>
-    <a href="#"><i class="fa fa-linkedin"></i></a>
-    <a href="#"><i class="fa fa-pinterest-p"></i></a>
-  </div>
   <div class="humberger__menu__contact">
     <ul>
-      <li><i class="fa fa-envelope"></i> kadeca@gmail.com</li>
-      <li>kaDECA, your one place marketplace!</li>
+      <% if buyer_signed_in? %>
+        <li><i class="fa fa-envelope"></i> <%= current_buyer.email %>!</li>
+        <li>Welcome <%= current_buyer.name %></li>
+      <% elsif seller_signed_in? %>
+        <li><i class="fa fa-envelope"></i> <%= current_seller.email %>!</li>
+        <li>Welcome <%= current_seller.name %></li>
+      <% else  %>
+        <li><i class="fa fa-envelope"></i> kadeca@gmail.com</li>
+        <li>kaDECA, your one place marketplace!</li>
+      <%end%>
     </ul>
   </div>
 </div>
 <!-- Humberger End -->
-
 <header class="header">
   <div class="header__top">
     <div class="container">
@@ -53,24 +54,37 @@
         <div class="col-lg-6 col-md-6">
           <div class="header__top__left">
             <ul>
-              <li><i class="fa fa-envelope"></i> kadeca@gmail.com</li>
-              <li>kaDECA, your one place marketplace!</li>
+              <% if buyer_signed_in? %>
+                <li><i class="fa fa-envelope"></i> <%= current_buyer.email %></li>
+                <li>Welcome <%= current_buyer.name %>!</li>
+              <% elsif seller_signed_in? %>
+                <li><i class="fa fa-envelope"></i> <%= current_seller.email %>!</li>
+                <li>Welcome <%= current_seller.name %></li>
+              <% else  %>
+                <li><i class="fa fa-envelope"></i> kadeca@gmail.com</li>
+                <li>kaDECA, your one place marketplace!</li>
+              <%end%>
             </ul>
           </div>
         </div>
         <div class="col-lg-6 col-md-6">
           <div class="header__top__right">
             <div class="header__top__right__social">
-              <a href="#"><i class="fa fa-facebook"></i></a>
+              <%if buyer_signed_in?%>
+                <a href="/buyers/edit" ><i class="fa fa-cog"></i> Account</a>
+              <% elsif seller_signed_in? %>
+                <a href="/sellers/edit"><i class="fa fa-cog"></i> Account</a>
+              <%else%>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+              <%end%>
             </div>
-            
             <div class="header__top__right__auth">
               <%if buyer_signed_in?%>
-              <a href="/buyers/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
+                <a href="/buyers/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
               <% elsif seller_signed_in? %>
-              <a href="/sellers/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
+                <a href="/sellers/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
               <%else%>
-              <a href="/buyers/sign_in"><i class="fa fa-user"></i> Login</a>
+                <a href="/buyers/sign_in"><i class="fa fa-user"></i> Login</a>
               <%end%>
             </div>
           </div>
