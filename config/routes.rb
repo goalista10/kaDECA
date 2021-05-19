@@ -11,5 +11,10 @@ Rails.application.routes.draw do
   get 'home/blog'
   get 'home/contact'
   get 'shop/product'
+
+  get 'sellers/dashboard'
+  get 'sellers/products'
+  get 'sellers/transactions'
+  
   root 'home#homepage'
 end

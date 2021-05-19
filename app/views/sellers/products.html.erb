@@ -1,0 +1,55 @@
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Cost</th>
+      <th>Availability</th>
+      <th>Description</th>
+      <th>seller_id</th>
+      <th>product_id</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% current_seller.products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.cost %></td>
+        <td><%= product.availability %></td>
+        <td><%= product.description %></td>
+        <td><%= product.seller_id %></td>
+        <td><%= product.id %></td>
+        <td><%= link_to 'Edit', edit_product_path(product.id),class:"btn btn-warning btn-sm" %></td>
+        <td><%= link_to 'Remove', product_path(product.id), method: :delete, data: { confirm: 'Remove category and all its tasks?' } ,class:"btn btn-danger btn-sm"%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Add products</h1>
+<%= form_with model: current_seller.products.build , url: product_index_path ,local: true do |form| %>
+  <div>
+    <%= form.label :name ,class:"form-label"%>
+    <%= form.text_field :name  %>
+  </div>
+
+  <div>
+    <%= form.label :cost ,class:"form-label"%>
+    <%= form.number_field :cost ,step: 0.01 %>
+  </div>
+
+  <div>
+    <%= form.label :availability ,class:"form-label"%>
+    <%= form.text_field :availability %>
+  </div>
+
+  <div>
+    <%= form.label :description ,class:"form-label"%>
+    <%= form.text_field :description  %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit nil ,class:"btn btn-primary" %>
+  </div>
+<% end %>

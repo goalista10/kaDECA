@@ -101,6 +101,14 @@
       </div>
       <div class="col-lg-9">
         <nav class="header__menu">
+          <%if seller_signed_in?%>
+          <ul>
+            <li><%= link_to "Dashboard", root_path %></li>
+            <li><%= link_to "Products", sellers_products_path %></li>
+            <li><a href="/home/blog.html">Announcement</a></li>
+            <li><a href="/home/contact.html">Contact</a></li>
+          </ul>
+          <%else%>
           <ul>
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "Shop", home_shop_path %></li>
@@ -114,6 +122,8 @@
             <li><a href="/home/blog.html">Announcement</a></li>
             <li><a href="/home/contact.html">Contact</a></li>
           </ul>
+          <%end%>
+          
         </nav>
       </div>
     </div>
