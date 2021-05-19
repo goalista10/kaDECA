@@ -1,0 +1,25 @@
+<%= form_with model: @to_be_updated , url: product_path ,local: true do |form| %>
+  <div>
+    <%= form.label :name ,class:"form-label"%>
+    <%= form.text_field :name  %>
+  </div>
+
+  <div>
+    <%= form.label :cost ,class:"form-label"%>
+    <%= form.number_field :cost ,step: 0.01 %>
+  </div>
+
+  <div>
+    <%= form.label :availability ,class:"form-label"%>
+    <%= form.select :availability , ["Made upon Order", "Limited", "Daily Restock"]%>
+  </div>
+
+  <div>
+    <%= form.label :description ,class:"form-label"%>
+    <%= form.text_field :description , size: "70x10" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit nil ,class:"btn btn-primary" %>
+  </div>
+<% end %>

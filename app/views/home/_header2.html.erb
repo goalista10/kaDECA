@@ -59,7 +59,7 @@
                 <li>Welcome <%= current_buyer.name %>!</li>
               <% elsif seller_signed_in? %>
                 <li><i class="fa fa-envelope"></i> <%= current_seller.email %>!</li>
-                <li>Welcome <%= current_seller.name %></li>
+                <li> <%= current_seller.name %><%= current_seller.contact %><%= current_seller.blk %><%= current_seller.lot %></li>
               <% else  %>
                 <li><i class="fa fa-envelope"></i> kadeca@gmail.com</li>
                 <li>kaDECA, your one place marketplace!</li>
