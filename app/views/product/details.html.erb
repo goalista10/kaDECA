@@ -1,0 +1,28 @@
+<section class="product-details spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <div class="product__details__pic">
+          <div class="product__details__pic__item">
+            <img class="product__details__pic__item--large" src=<%= @product.pic_url%> alt="">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <div class="product__details__text">
+          <h3><%= @product.name%> </h3>
+          <div class="product__details__price">$<%= @product.cost%> </div>
+          <p><%= @product.description%> </p>
+          <a href="#" class="primary-btn">Contact Seller</a>
+          <ul>
+            <li><b>Availability</b> <span><%= @product.availability%> </span></li>
+            <li><b>Seller Name</b> <span><%= @seller.name%> </span></li>
+            <li><b>Blk</b> <span><%= @seller.blk%> </span></li>
+            <li><b>Lot</b> <span><%= @seller.lot%> </span></li>
+            <li><b>Contact Number</b> <span><%= @seller.contact%> </span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get 'home/shop/:category' , to: 'home#shop', as: 'home_shop'
   get 'home/blog'
   get 'home/contact'
-  get 'shop/product'
 
   get 'sellers/dashboard'
   get 'sellers/products'

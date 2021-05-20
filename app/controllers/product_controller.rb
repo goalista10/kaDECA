@@ -1,4 +1,10 @@
 class ProductController < ApplicationController
+    def show
+        @product = Product.find(params[:id])
+        @seller = Product.find(params[:id]).seller
+        render "product/details"
+    end
+
     def create
         @create_product = current_seller.products.build(product_params)
         if @create_product.save
