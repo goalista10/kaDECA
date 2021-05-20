@@ -10,6 +10,8 @@
         <a href="/buyers/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
       <% elsif seller_signed_in? %>
         <a href="/sellers/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
+      <% elsif admin_signed_in? %>
+        <a href="/admins/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
       <%else%>
         <a href="/buyers/sign_in"><i class="fa fa-user"></i> Login</a>
       <%end%>
@@ -58,8 +60,11 @@
                 <li><i class="fa fa-envelope"></i> <%= current_buyer.email %></li>
                 <li>Welcome <%= current_buyer.name %>!</li>
               <% elsif seller_signed_in? %>
-                <li><i class="fa fa-envelope"></i> <%= current_seller.email %>!</li>
+                <li><i class="fa fa-envelope"></i> <%= current_seller.email %></li>
                 <li> <%= current_seller.name %><%= current_seller.contact %><%= current_seller.blk %><%= current_seller.lot %></li>
+              <% elsif admin_signed_in? %>
+                <li><i class="fa fa-envelope"></i> <%= current_admin.email %></li>
+                <li> Welcome Admin!</li>
               <% else  %>
                 <li><i class="fa fa-envelope"></i> kadeca@gmail.com</li>
                 <li>kaDECA, your one place marketplace!</li>
@@ -83,6 +88,8 @@
                 <a href="/buyers/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
               <% elsif seller_signed_in? %>
                 <a href="/sellers/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
+              <% elsif admin_signed_in? %>
+                <a href="/admins/sign_out" data-method="delete"><i class="fa fa-user"></i> Logout</a>
               <%else%>
                 <a href="/buyers/sign_in"><i class="fa fa-user"></i> Login</a>
               <%end%>
@@ -96,7 +103,11 @@
     <div class="row">
       <div class="col-lg-3">
         <div class="header__logo">
+          <%if admin_signed_in?%>
+          <a href="/admin/dashboard"><%= image_tag "logo.png" %></a>
+          <%else%>
           <a href="/"><%= image_tag "logo.png" %></a>
+          <%end%>
         </div>
       </div>
       <div class="col-lg-9">
@@ -108,17 +119,19 @@
             <li><a href="/home/blog.html">Announcement</a></li>
             <li><a href="/home/contact.html">Contact</a></li>
           </ul>
+          <%elsif admin_signed_in?%>
+          <ul>
+            <li><%= link_to "Dashboard", admin_dashboard_path %></li>
+            <li><%= link_to "Buyers", admin_buyers_path %></li>
+            <li><%= link_to "Sellers", admin_sellers_path %></li>
+            <li><%= link_to "Products", admin_products_path %></li>
+            <li><%= link_to "Announcements", admin_announcements_path %></li>
+          </ul>
           <%else%>
           <ul>
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "Shop", home_shop_path("all") %></li>
-            <li><a href="#">Pages</a>
-              <ul class="header__menu__dropdown">
-                <li><a href="./shop-details.html">About</a></li>
-                <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-                <li><a href="./checkout.html">Check Out</a></li>
-              </ul>
-            </li>
+            <li><%= link_to "About", home_shop_path("all") %></li>
             <li><a href="/home/blog.html">Announcement</a></li>
             <li><a href="/home/contact.html">Contact</a></li>
           </ul>

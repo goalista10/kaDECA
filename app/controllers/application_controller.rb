@@ -27,4 +27,12 @@ class ApplicationController < ActionController::Base
         super # Use the default one
       end
     end
+
+    def after_sign_in_path_for(resource)
+      if resource.to_s.include? 'dmin'
+        admin_dashboard_path
+      else
+        root_path
+      end
+    end
   end

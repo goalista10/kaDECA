@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :admins
   devise_for :sellers
   devise_for :buyers
 
@@ -14,6 +15,12 @@ Rails.application.routes.draw do
   get 'sellers/dashboard'
   get 'sellers/products'
   get 'sellers/transactions'
-  
+
+  get 'admin/buyers'
+  get 'admin/sellers'
+  get 'admin/announcements'
+  get 'admin/products'
+  get 'admin/dashboard'
+
   root 'home#homepage'
 end
