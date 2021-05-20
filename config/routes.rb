@@ -9,8 +9,9 @@ Rails.application.routes.draw do
   end
   get 'home/signup'
   get 'home/shop/:category' , to: 'home#shop', as: 'home_shop'
-  get 'home/blog'
-  get 'home/contact'
+  get 'home/about'
+  get 'home/announcement'
+  get 'home/deca'
 
   get 'sellers/dashboard'
   get 'sellers/products'

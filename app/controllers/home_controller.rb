@@ -13,7 +13,9 @@ class HomeController < ApplicationController
     end
   end
 
-  def blog; end
+  def about; end
 
-  def contact; end
+  def announcement; end
+
+  def deca; end
 end

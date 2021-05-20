@@ -18,19 +18,30 @@
     </div>
   </div>
   <nav class="humberger__menu__nav mobile-menu">
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Shop", home_shop_path("all") %></li>
-      <li><a href="#">Pages</a>
-        <ul class="header__menu__dropdown">
-          <li><a href="./shop-details.html">About</a></li>
-          <li><a href="./shoping-cart.html">Shoping Cart</a></li>
-          <li><a href="./checkout.html">Check Out</a></li>
-        </ul>
-      </li>
-      <li><a href="/home/blog.html">Announcement</a></li>
-      <li><a href="/home/contact.html">Contact</a></li>
-    </ul>
+    <%if seller_signed_in?%>
+          <ul>
+            <li><%= link_to "Dashboard", root_path %></li>
+            <li><%= link_to "Products", sellers_products_path %></li>
+            <li><a href="/home/blog.html">Announcement</a></li>
+            <li><a href="/home/contact.html">Contact</a></li>
+          </ul>
+          <%elsif admin_signed_in?%>
+          <ul>
+            <li><%= link_to "Dashboard", admin_dashboard_path %></li>
+            <li><%= link_to "Buyers", admin_buyers_path %></li>
+            <li><%= link_to "Sellers", admin_sellers_path %></li>
+            <li><%= link_to "Products", admin_products_path %></li>
+            <li><%= link_to "Announcements", admin_announcements_path %></li>
+          </ul>
+          <%else%>
+          <ul>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Shop", home_shop_path("all") %></li>
+            <li><%= link_to "About", home_about_path %></li>
+            <li><%= link_to "Announcement", home_announcement_path %></li>
+            <li><%= link_to "Deca", home_deca_path %></li>
+          </ul>
+          <%end%>
   </nav>
   <div id="mobile-menu-wrap"></div>
   <div class="humberger__menu__contact">
@@ -131,9 +142,9 @@
           <ul>
             <li><%= link_to "Home", root_path %></li>
             <li><%= link_to "Shop", home_shop_path("all") %></li>
-            <li><%= link_to "About", home_shop_path("all") %></li>
-            <li><a href="/home/blog.html">Announcement</a></li>
-            <li><a href="/home/contact.html">Contact</a></li>
+            <li><%= link_to "About", home_about_path %></li>
+            <li><%= link_to "Announcement", home_announcement_path %></li>
+            <li><%= link_to "DECA", home_deca_path %></li>
           </ul>
           <%end%>
           
