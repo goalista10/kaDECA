@@ -27,7 +27,7 @@
     <%= javascript_pack_tag "application", "data-turbolinks-track" => "reload" %>
   </head>
   <body>
-    <%=render "home/header2"%>
+    <%=render "layouts/header2"%>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -35,7 +35,7 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
     <%= yield %>
-    <%=render "home/footer"%>
+    <%=render "layouts/footer"%>
     <%= javascript_pack_tag "application2", "data-turbolinks-track" => "reload" %>
   </body>
 </html>

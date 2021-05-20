@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :product do
   end
   get 'home/signup'
-  get 'home/shop'
+  get 'home/shop/:category' , to: 'home#shop', as: 'home_shop'
   get 'home/blog'
   get 'home/contact'
   get 'shop/product'

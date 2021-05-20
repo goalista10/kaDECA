@@ -5,7 +5,13 @@ class HomeController < ApplicationController
     @all = Feature.all
   end
 
-  def shop; end
+  def shop
+    if params[:category] == "food"
+      @products = Product.where('category' => 'Food')
+    else
+      @products = Product.all
+    end
+  end
 
   def blog; end
 
