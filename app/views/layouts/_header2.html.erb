@@ -2,7 +2,13 @@
 <div class="humberger__menu__overlay"></div>
 <div class="humberger__menu__wrapper">
   <div class="humberger__menu__logo">
-    <a href="#"><%= image_tag "logo.png" %></a>
+    <%if admin_signed_in?%>
+      <a href="/admin/dashboard"><%= image_tag "logo.png" %></a>
+    <%elsif seller_signed_in?%>
+      <a href="/sellers/dashboard"><%= image_tag "logo.png" %></a>
+    <%else%>
+      <a href="/"><%= image_tag "logo.png" %></a>
+    <%end%>
   </div>
   <div class="humberger__menu__widget">
     <div class="header__top__right__auth">
@@ -19,29 +25,28 @@
   </div>
   <nav class="humberger__menu__nav mobile-menu">
     <%if seller_signed_in?%>
-          <ul>
-            <li><%= link_to "Dashboard", root_path %></li>
-            <li><%= link_to "Products", sellers_products_path %></li>
-            <li><a href="/home/blog.html">Announcement</a></li>
-            <li><a href="/home/contact.html">Contact</a></li>
-          </ul>
-          <%elsif admin_signed_in?%>
-          <ul>
-            <li><%= link_to "Dashboard", admin_dashboard_path %></li>
-            <li><%= link_to "Buyers", admin_buyers_path %></li>
-            <li><%= link_to "Sellers", admin_sellers_path %></li>
-            <li><%= link_to "Products", admin_products_path %></li>
-            <li><%= link_to "Announcements", admin_announcements_path %></li>
-          </ul>
-          <%else%>
-          <ul>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Shop", home_shop_path("all") %></li>
-            <li><%= link_to "About", home_about_path %></li>
-            <li><%= link_to "Announcement", home_announcement_path %></li>
-            <li><%= link_to "Deca", home_deca_path %></li>
-          </ul>
-          <%end%>
+      <ul>
+        <li><%= link_to "Dashboard", sellers_dashboard_path %></li>
+        <li><%= link_to "Products", sellers_products_path %></li>
+        <li><%= link_to "Transactions", sellers_transactions_path %></li>
+      </ul>
+    <%elsif admin_signed_in?%>
+      <ul>
+        <li><%= link_to "Dashboard", admin_dashboard_path %></li>
+        <li><%= link_to "Buyers", admin_buyers_path %></li>
+        <li><%= link_to "Sellers", admin_sellers_path %></li>
+        <li><%= link_to "Products", admin_products_path %></li>
+        <li><%= link_to "Announcements", admin_announcements_path %></li>
+      </ul>
+    <%else%>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Shop", home_shop_path("all") %></li>
+        <li><%= link_to "About", home_about_path %></li>
+        <li><%= link_to "Announcement", home_announcement_path %></li>
+        <li><%= link_to "Deca", home_deca_path %></li>
+      </ul>
+    <%end%>
   </nav>
   <div id="mobile-menu-wrap"></div>
   <div class="humberger__menu__contact">
@@ -115,39 +120,39 @@
       <div class="col-lg-3">
         <div class="header__logo">
           <%if admin_signed_in?%>
-          <a href="/admin/dashboard"><%= image_tag "logo.png" %></a>
+            <a href="/admin/dashboard"><%= image_tag "logo.png" %></a>
+          <%elsif seller_signed_in?%>
+            <a href="/sellers/dashboard"><%= image_tag "logo.png" %></a>
           <%else%>
-          <a href="/"><%= image_tag "logo.png" %></a>
+            <a href="/"><%= image_tag "logo.png" %></a>
           <%end%>
         </div>
       </div>
       <div class="col-lg-9">
         <nav class="header__menu">
           <%if seller_signed_in?%>
-          <ul>
-            <li><%= link_to "Dashboard", root_path %></li>
-            <li><%= link_to "Products", sellers_products_path %></li>
-            <li><a href="/home/blog.html">Announcement</a></li>
-            <li><a href="/home/contact.html">Contact</a></li>
-          </ul>
+            <ul>
+              <li><%= link_to "Dashboard", sellers_dashboard_path %></li>
+              <li><%= link_to "Products", sellers_products_path %></li>
+              <li><%= link_to "Transactions", sellers_transactions_path %></li>
+            </ul>
           <%elsif admin_signed_in?%>
-          <ul>
-            <li><%= link_to "Dashboard", admin_dashboard_path %></li>
-            <li><%= link_to "Buyers", admin_buyers_path %></li>
-            <li><%= link_to "Sellers", admin_sellers_path %></li>
-            <li><%= link_to "Products", admin_products_path %></li>
-            <li><%= link_to "Announcements", admin_announcements_path %></li>
-          </ul>
+            <ul>
+              <li><%= link_to "Dashboard", admin_dashboard_path %></li>
+              <li><%= link_to "Buyers", admin_buyers_path %></li>
+              <li><%= link_to "Sellers", admin_sellers_path %></li>
+              <li><%= link_to "Products", admin_products_path %></li>
+              <li><%= link_to "Announcements", admin_announcements_path %></li>
+            </ul>
           <%else%>
-          <ul>
-            <li><%= link_to "Home", root_path %></li>
-            <li><%= link_to "Shop", home_shop_path("all") %></li>
-            <li><%= link_to "About", home_about_path %></li>
-            <li><%= link_to "Announcement", home_announcement_path %></li>
-            <li><%= link_to "DECA", home_deca_path %></li>
-          </ul>
+            <ul>
+              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to "Shop", home_shop_path("all") %></li>
+              <li><%= link_to "About", home_about_path %></li>
+              <li><%= link_to "Announcement", home_announcement_path %></li>
+              <li><%= link_to "DECA", home_deca_path %></li>
+            </ul>
           <%end%>
-          
         </nav>
       </div>
     </div>
