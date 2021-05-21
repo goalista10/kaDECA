@@ -9,15 +9,12 @@ class ProductController < ApplicationController
         @create_product = current_seller.products.build(product_params)
         if @create_product.save
             flash.notice = "Product created"
+            redirect_to "/sellers/products"
         else
             @error = @create_product.errors.full_messages.first
-            if @error.include? "blank"
-                flash.notice = "Product name can't be blank"
-            else
-                flash.notice = "Product name is redundant"
-            end
+            flash.alert =  @error
+            redirect_to "/sellers/add_product"
         end
-        redirect_to "/sellers/products"
     end
 
     def destroy
@@ -39,11 +36,7 @@ class ProductController < ApplicationController
             redirect_to "/sellers/products" 
         else
             @error = @update_product.errors.full_messages.first
-            if @error.include? "blank"
-                flash.notice = "Product name can't be blank"
-            else
-                flash.notice = "Product name is redundant"
-            end
+            flash.alert = @error
             redirect_to edit_product_path(params[:id])
         end
     end
