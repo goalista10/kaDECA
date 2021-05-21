@@ -77,7 +77,7 @@
                 <li>Welcome <%= current_buyer.name %>!</li>
               <% elsif seller_signed_in? %>
                 <li><i class="fa fa-envelope"></i> <%= current_seller.email %></li>
-                <li> <%= current_seller.name %><%= current_seller.contact %><%= current_seller.blk %><%= current_seller.lot %></li>
+                <li>Welcome <%= current_seller.name %>!</li>
               <% elsif admin_signed_in? %>
                 <li><i class="fa fa-envelope"></i> <%= current_admin.email %></li>
                 <li> Welcome Admin!</li>

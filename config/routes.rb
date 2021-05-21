@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'sellers/dashboard'
   get 'sellers/products'
   get 'sellers/transactions'
+  get 'sellers/add_product'
 
   get 'admin/buyers'
   get 'admin/sellers'

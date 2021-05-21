@@ -8,13 +8,13 @@ class ProductController < ApplicationController
     def create
         @create_product = current_seller.products.build(product_params)
         if @create_product.save
-            flash.notice = "Category created"
+            flash.notice = "Product created"
         else
             @error = @create_product.errors.full_messages.first
             if @error.include? "blank"
-                flash.notice = "Category name can't be blank"
+                flash.notice = "Product name can't be blank"
             else
-                flash.notice = "Category name is redundant"
+                flash.notice = "Product name is redundant"
             end
         end
         redirect_to "/sellers/products"
@@ -23,7 +23,7 @@ class ProductController < ApplicationController
     def destroy
         @to_be_deleted = current_seller.products.find(params[:id])
         @to_be_deleted.destroy
-        flash.notice = "Category deleted"
+        flash.notice = "Product deleted"
         redirect_to "/sellers/products"
     end
 
@@ -40,11 +40,11 @@ class ProductController < ApplicationController
         else
             @error = @update_product.errors.full_messages.first
             if @error.include? "blank"
-                flash.notice = "Category name can't be blank"
+                flash.notice = "Product name can't be blank"
             else
-                flash.notice = "Category name is redundant"
+                flash.notice = "Product name is redundant"
             end
-            redirect_to edit_category_path(params[:id])
+            redirect_to edit_product_path(params[:id])
         end
     end
     private

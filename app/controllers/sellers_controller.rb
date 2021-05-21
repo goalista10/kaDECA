@@ -10,4 +10,8 @@ class SellersController < ApplicationController
     def dashboard
 
     end
+
+    def add_product
+
+    end
   end
