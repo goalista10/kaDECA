@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   devise_for :sellers
   devise_for :buyers
 
-  resources :product do
-  end
+  resources :product 
+  resources :announcement 
+
   get 'home/signup'
   get 'home/shop/:category' , to: 'home#shop', as: 'home_shop'
   get 'home/about'
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   get 'admin/announcements'
   get 'admin/products'
   get 'admin/dashboard'
+  get 'admin/add_announcement'
 
   root 'home#homepage'
 end
