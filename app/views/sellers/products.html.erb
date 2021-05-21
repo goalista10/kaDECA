@@ -22,7 +22,7 @@
         </tr>
       </thead>
       <tbody>
-        <% current_seller.products.each do |product| %>
+        <% current_seller.products.order(:id).each do |product| %>
           <tr>
             <td><%= product.name %></td>
             <td><%= product.cost %></td>
