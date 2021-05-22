@@ -2,14 +2,14 @@
   <div class="row">
     <div class="col-lg-12 text-center">
       <div class="breadcrumb__text">
-        <h2>Add Announcement</h2>
+        <h2>Edit Announcements</h2>
       </div>
     </div>
   </div>
 </div>
 <section class="featured spad">
   <div class="container">
-    <%= form_with model: Announcement , url: announcement_index_path ,local: true do |form| %>
+    <%= form_with model: @to_be_updated , url: announcement_path ,local: true do |form| %>
       <div>
         <%= form.label :title ,class:"form-label"%>
         <%= form.text_field :title ,class:"form-control" %>
@@ -24,7 +24,7 @@
       </div>
       <br />
       <div>
-        <%= form.submit "Create Announcement" ,class:"btn btn-primary" %>
+        <%= form.submit nil ,class:"btn btn-primary" %>
       </div>
     <% end %>
   </div>
