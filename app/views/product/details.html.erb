@@ -11,7 +11,7 @@
       <div class="col-lg-6 col-md-6">
         <div class="product__details__text">
           <h3><%= @product.name%> </h3>
-          <div class="product__details__price">$<%= @product.cost%> </div>
+          <div class="product__details__price">₱<%=sprintf('%.2f', @product.cost)%> </div>
           <p><%= @product.description%> </p>
           <a href="#" class="primary-btn">Contact Seller</a>
           <ul>
