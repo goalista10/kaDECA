@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get 'home/announcement'
   get 'home/deca'
 
+  get 'buyers/transactions'
+
   get 'sellers/dashboard'
   get 'sellers/products'
   get 'sellers/transactions'

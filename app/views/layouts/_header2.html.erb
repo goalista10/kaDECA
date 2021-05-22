@@ -45,6 +45,9 @@
         <li><%= link_to "About", home_about_path %></li>
         <li><%= link_to "Announcement", home_announcement_path %></li>
         <li><%= link_to "Deca", home_deca_path %></li>
+        <%if buyer_signed_in?%>
+          <li><%= link_to "Transactions", buyers_transactions_path %></li>
+        <%end%>
       </ul>
     <%end%>
   </nav>
@@ -151,6 +154,9 @@
               <li><%= link_to "About", home_about_path %></li>
               <li><%= link_to "Announcement", home_announcement_path %></li>
               <li><%= link_to "DECA", home_deca_path %></li>
+              <%if buyer_signed_in?%>
+                <li><%= link_to "Transactions", buyers_transactions_path %></li>
+              <%end%>
             </ul>
           <%end%>
         </nav>
