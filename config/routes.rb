@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'home/signup'
   get 'home/shop/:category' , to: 'home#shop', as: 'home_shop'
   get 'home/about'
-  get 'home/announcement'
+  get 'home/announcement/:category', to: 'home#announcement', as: 'home_announcement'
   get 'home/deca'
 
   get 'buyers/transactions'

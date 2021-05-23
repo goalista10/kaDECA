@@ -21,14 +21,11 @@
             </div>
             <h4>Category</h4>
             <ul>
-              <li><a href="#">All</a></li>
-              <li><%= link_to 'Food', home_shop_path("food") %></li>
-              <li><a href="#">Snacks</a></li>
-              <li><a href="#">Made on Order</a></li>
-              <li><a href="#">Misc</a></li>
-              <li><a href="#">Meat</a></li>
-              <li><a href="#">Fruits & Vegetables</a></li>
-            </ul>
+              <li><%= link_to "All", home_shop_path("All") %></li>
+                <% Product.distinct.pluck(:category).each do |product|%>
+                <li><%= link_to product, home_shop_path(product) %></li>
+                <%end%>
+              </ul>
           </div>
         </div>
       </div>

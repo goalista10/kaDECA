@@ -9,7 +9,7 @@
 </div>
 
 <!-- Blog Section Begin -->
-  <section class="blog spad">
+  <section class="product spad">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-5">
@@ -23,31 +23,30 @@
             <div class="blog__sidebar__item">
               <h4>Categories</h4>
               <ul>
-                <li><a href="#">All</a></li>
-                <li><a href="#">Beauty (20)</a></li>
-                <li><a href="#">Food (5)</a></li>
-                <li><a href="#">Life Style (9)</a></li>
-                <li><a href="#">Travel (10)</a></li>
+              <li><%= link_to "All", home_announcement_path("All") %></li>
+                <% Announcement.distinct.pluck(:category).each do |announcement|%>
+                <li><%= link_to announcement, home_announcement_path(announcement) %></li>
+                <%end%>
               </ul>
             </div>
           </div>
         </div>
         <div class="col-lg-8 col-md-7">
           <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6">
-              <!-- REPEAT -->
+          <% @announcement.order(created_at: :desc).each do |announcement|%>
+            <div class="col-lg-6 col-md-6 col-sm-6">            
               <div class="blog__item">
                 <div class="blog__item__text">
-                  <h5><a href="#">6 ways to prepare breakfast for 30</a></h5>
+                  <h5><%= link_to announcement.title, announcement_path(announcement.id) %></h5>
                   <ul>
-                    <li><i class="fa fa-calendar-o"></i> May 4,2019</li>
+                    <li><i class="fa fa-calendar-o"></i> <%=announcement.created_at.strftime("%b %d, %Y").to_s%></li>
+                    <li> <%=announcement.category%></li>
                   </ul>
-                  <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam
-                    quaerat </p>
-                  <a href="#" class="blog__btn">READ MORE <span class="arrow_right"></span></a>
+                  <%= link_to "READ MORE", announcement_path(announcement.id) ,class:"blog__btn"%>
                 </div>
-              </div>
+              </div>             
             </div>
+          <%end%>
           </div>
         </div>
       </div>

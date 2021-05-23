@@ -8,7 +8,7 @@
   </div>
 </div>
 <!-- Blog Section Begin -->
-<section class="blog spad">
+<section class="product spad">
   <div class="container">
     <div class="row">
       <div class="col-lg-4 col-md-5">
@@ -22,12 +22,11 @@
           <div class="blog__sidebar__item">
             <h4>Categories</h4>
             <ul>
-              <li><a href="#">All</a></li>
-              <li><a href="#">Beauty (20)</a></li>
-              <li><a href="#">Food (5)</a></li>
-              <li><a href="#">Life Style (9)</a></li>
-              <li><a href="#">Travel (10)</a></li>
-            </ul>
+              <li><%= link_to "All", home_announcement_path("All") %></li>
+                <% Announcement.distinct.pluck(:category).each do |announcement|%>
+                <li><%= link_to announcement, home_announcement_path(announcement) %></li>
+                <%end%>
+              </ul>
           </div>
         </div>
       </div>

@@ -6,16 +6,28 @@ class HomeController < ApplicationController
   end
 
   def shop
-    if params[:category] == "food"
-      @products = Product.where('category' => 'Food')
-    else
+    if params[:category] == "All"
       @products = Product.all
+    else
+      @products = Product.where('category' => params[:category])
+    end
+
+    if params[:category] == "All"
+      @announcement = Announcement.all    
+    else
+      @announcement = Announcement.where('category' => params[:category])
     end
   end
 
   def about; end
 
-  def announcement; end
+  def announcement
+    if params[:category] == "All"
+      @announcement = Announcement.all    
+    else
+      @announcement = Announcement.where('category' => params[:category])
+    end
+  end
 
   def deca; end
 end
