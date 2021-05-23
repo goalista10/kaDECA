@@ -11,12 +11,6 @@ class HomeController < ApplicationController
     else
       @products = Product.where('category' => params[:category])
     end
-
-    if params[:category] == "All"
-      @announcement = Announcement.all    
-    else
-      @announcement = Announcement.where('category' => params[:category])
-    end
   end
 
   def about; end
