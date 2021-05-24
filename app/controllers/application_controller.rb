@@ -10,8 +10,8 @@ class Buyer::ParameterSanitizer < Devise::ParameterSanitizer
   class Seller::ParameterSanitizer < Devise::ParameterSanitizer
     def initialize(*)
       super
-      permit(:sign_up, keys: [:name, :email, :password,:contact,:blk,:lot])
-      permit(:account_update, keys: [:name, :email, :password,:contact,:blk,:lot])
+      permit(:sign_up, keys: [:name, :email, :password,:contact,:blk,:lot,:fb])
+      permit(:account_update, keys: [:name, :email, :password,:contact,:blk,:lot,:fb])
     end
   end
 
