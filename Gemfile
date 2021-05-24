@@ -18,6 +18,7 @@ gem "font-awesome-rails"
 gem 'jquery-rails'
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 gem "google-cloud-storage", "~> 1.11", require: false
+gem 'rmagick'
 
 
 group :development, :test do
