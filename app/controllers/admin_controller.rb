@@ -13,7 +13,29 @@ class AdminController < ApplicationController
 
     def buyers
         if admin_signed_in?
+            
+        else
+            redirect_to "/admins/sign_in"
+        end
+    end
 
+    def admin_buyer_delete
+        if admin_signed_in?
+            @to_be_deleted = Buyer.find(params[:id])
+            @to_be_deleted.destroy
+            flash.notice = "Buyer deleted"
+            redirect_to "/admin/buyers"
+        else
+            redirect_to "/admins/sign_in"
+        end
+    end
+
+    def admin_seller_delete
+        if admin_signed_in?
+            @to_be_deleted = Seller.find(params[:id])
+            @to_be_deleted.destroy
+            flash.notice = "Seller deleted"
+            redirect_to "/admin/sellers"
         else
             redirect_to "/admins/sign_in"
         end
