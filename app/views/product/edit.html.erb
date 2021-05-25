@@ -27,8 +27,9 @@
         <%= form.select :availability , ["Made upon Order", "Limited", "Daily Restock"],{},class:"custom-select"%>
       </div>
       <div>
-        <%= form.label :pic_url ,class:"form-label"%>
-        <%= form.text_field :pic_url ,class:"form-control"%>
+        
+        <%= form.label "Picture Upload" ,class:"form-label"%>
+        <%= form.file_field :avatar ,class:"form-control-file"%>
       </div>
       <div>
         <%= form.label :description ,class:"form-label"%>
@@ -39,5 +40,7 @@
         <%= form.submit nil ,class:"btn btn-primary" %>
       </div>
     <% end %>
+    <p class="form-label">Current Photo</p>
+    <%= image_tag url_for(@to_be_updated.avatar) %>
   </div>
 </section>

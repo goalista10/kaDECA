@@ -2,7 +2,7 @@
 
 class HomeController < ApplicationController
   def homepage
-    @all = Feature.all
+
   end
 
   def shop

@@ -20,13 +20,12 @@
       </div>
     </div>
     <div class="row">
-      <%@all.each do |product|%>
+      <%Product.limit(2).order("RANDOM()").each do |product|%>
         <div class="col-lg-3 col-md-4 col-sm-6">
           <div class="featured__item">
-            <div class="featured__item__pic set-bg" data-setbg=<%=product.url%>>
+            <div class="featured__item__pic set-bg" data-setbg=<%=url_for(product.avatar)%>>
               <ul class="featured__item__pic__hover">
                 <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                <li><a href="#"><i class="fa fa-share"></i></a></li>
                 <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
               </ul>
             </div>
