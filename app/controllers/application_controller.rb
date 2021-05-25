@@ -16,6 +16,8 @@ class Buyer::ParameterSanitizer < Devise::ParameterSanitizer
   end
 
 class ApplicationController < ActionController::Base
+    include Pagy::Backend
+
     protected
   
     def devise_parameter_sanitizer

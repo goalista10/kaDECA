@@ -7,9 +7,11 @@ class HomeController < ApplicationController
 
   def shop
     if params[:category] == "All"
-      @products = Product.all
+      @count = Product.count
+      @pagy, @records = pagy(Product.all)
     else
-      @products = Product.where('category' => params[:category])
+      @count = Product.where('category' => params[:category]).count
+      @pagy, @records = pagy(Product.where('category' => params[:category]))
     end
   end
 
