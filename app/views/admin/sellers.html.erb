@@ -19,7 +19,7 @@
         </tr>
       </thead>
       <tbody>
-        <% Seller.all.order(:id).each do |seller| %>
+        <% @records.order(:id).each do |seller| %>
           <tr>
             <td><%= seller.name %></td>
             <td><%= seller.email %></td>
@@ -28,5 +28,6 @@
         <% end %>
       </tbody>
     </table>
+    <%= pagy_bootstrap_nav(@pagy).html_safe  %>
   </div>
 </section>

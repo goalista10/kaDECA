@@ -22,7 +22,7 @@
         </tr>
       </thead>
       <tbody>
-        <% Product.all.order(:id).each do |product| %>
+        <% @records.order(:id).each do |product| %>
           <tr>
             <td><%= product.name %></td>
             <td><%= product.cost %></td>
@@ -34,5 +34,6 @@
         <% end %>
       </tbody>
     </table>
+    <%= pagy_bootstrap_nav(@pagy).html_safe  %>
   </div>
 </section>
