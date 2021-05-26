@@ -7,34 +7,33 @@
     </div>
   </div>
 </div>
-
 <!-- Blog Section Begin -->
-  <section class="product spad">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-5">
-          <div class="blog__sidebar">
-            <div class="blog__sidebar__search">
-              <form action="#">
-                <input type="text" placeholder="Search...">
-                <button type="submit"><span class="icon_search"></span></button>
-              </form>
-            </div>
-            <div class="blog__sidebar__item">
-              <h4>Categories</h4>
-              <ul>
+<section class="product spad">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-5">
+        <div class="blog__sidebar">
+          <div class="blog__sidebar__search">
+            <form action="#">
+              <input type="text" placeholder="Search...">
+              <button type="submit"><span class="icon_search"></span></button>
+            </form>
+          </div>
+          <div class="blog__sidebar__item">
+            <h4>Categories</h4>
+            <ul>
               <li><%= link_to "All", home_announcement_path("All") %></li>
-                <% Announcement.distinct.pluck(:category).each do |announcement|%>
+              <% Announcement.distinct.pluck(:category).each do |announcement|%>
                 <li><%= link_to announcement, home_announcement_path(announcement) %></li>
-                <%end%>
-              </ul>
-            </div>
+              <%end%>
+            </ul>
           </div>
         </div>
-        <div class="col-lg-8 col-md-7">
-          <div class="row">
-          <% @announcement.order(created_at: :desc).each do |announcement|%>
-            <div class="col-lg-6 col-md-6 col-sm-6">            
+      </div>
+      <div class="col-lg-8 col-md-7">
+        <div class="row">
+          <% @records.order(created_at: :desc).each do |announcement|%>
+            <div class="col-lg-6 col-md-6 col-sm-6">
               <div class="blog__item">
                 <div class="blog__item__text">
                   <h5><%= link_to announcement.title, announcement_path(announcement.id) %></h5>
@@ -44,12 +43,13 @@
                   </ul>
                   <%= link_to "READ MORE", announcement_path(announcement.id) ,class:"blog__btn"%>
                 </div>
-              </div>             
+              </div>
             </div>
           <%end%>
-          </div>
         </div>
+        <%= pagy_bootstrap_nav(@pagy).html_safe  %>
       </div>
     </div>
-  </section>
-  <!-- Blog Section End -->
+  </div>
+</section>
+<!-- Blog Section End -->

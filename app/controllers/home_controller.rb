@@ -19,9 +19,10 @@ class HomeController < ApplicationController
 
   def announcement
     if params[:category] == "All"
-      @announcement = Announcement.all    
+      @pagy, @records = pagy(Announcement.all)
     else
-      @announcement = Announcement.where('category' => params[:category])
+      @count = Product.where('category' => params[:category]).count
+      @pagy, @records = pagy(Announcement.where('category' => params[:category]))
     end
   end
 
