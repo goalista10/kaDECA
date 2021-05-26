@@ -14,10 +14,9 @@
         <div class="sidebar">
           <div class="sidebar__item">
             <div class="blog__sidebar__search">
-              <form action="#">
-                <input type="text" placeholder="Search...">
-                <button type="submit"><span class="icon_search"></span></button>
-              </form>
+              <%= form_with   url: home_shop_path, method: :get ,local: true do |form| %>
+              <%= form.text_field :search, placeholder: "Search..." ,class:"form-control" %>
+              <%end%>
             </div>
             <h4>Category</h4>
             <ul>
@@ -33,14 +32,6 @@
         <div class="filter__item">
           <div class="row">
             <div class="col-lg-4 col-md-5">
-              <div class="filter__sort">
-                <%= form_with  url: product_index_path ,local: true do |form| %>
-                  <div>
-                    <%= form.label "Sort By" ,class:"form-label"%>
-                    <%= form.select :category, ["Cost", "Name", "Meats"],{},class:"custom-select" %>
-                  </div>
-                <%end%>
-              </div>
             </div>
             <div class="col-lg-4 col-md-4">
               <div class="filter__found">
@@ -48,19 +39,10 @@
               </div>
             </div>
             <div class="col-lg-4 col-md-3">
-              <div class="filter__option">
-                <%= form_with  url: request.referer,method: "GET" ,local: true do |form| %>
-                  <div>
-                    <%= form.label "Order By" ,class:"form-label"%>
-                    <%= form.select @order, ["Ascending", "Descending"],{},{:onchange => 'this.form.submit()',class:"custom-select"} %>
-                  </div>
-                <%end%>
-              </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <h1><%= @order%></h1>
           <% @records.each do |product|%>
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="product__item">

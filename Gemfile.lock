@@ -320,6 +320,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    textacular (5.4.0)
+      activerecord (>= 5.0, < 6.2)
     thor (1.1.0)
     tilt (2.0.10)
     trailblazer-option (0.1.1)
@@ -383,6 +385,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   shoulda-matchers
   spring
+  textacular (~> 5.0)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

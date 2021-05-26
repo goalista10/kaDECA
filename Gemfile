@@ -20,6 +20,8 @@ gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dab
 gem "google-cloud-storage", "~> 1.11", require: false
 gem 'rmagick'
 gem 'pagy'
+gem 'textacular', '~> 5.0'
+
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
