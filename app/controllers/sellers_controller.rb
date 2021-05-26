@@ -1,6 +1,7 @@
 class SellersController < ApplicationController
     def products
       if seller_signed_in?
+          @pagy, @records = pagy(current_seller.products)
       else
           redirect_to "/sellers/sign_in"
       end
