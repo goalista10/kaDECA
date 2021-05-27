@@ -10,11 +10,12 @@ Rails.application.routes.draw do
 
   get 'home/signup'
   get 'home/shop/:category' , to: 'home#shop', as: 'home_shop'
-  get 'home/about'
   get 'home/announcement/:category', to: 'home#announcement', as: 'home_announcement'
   get 'home/deca'
 
-  get 'buyers/transactions'
+  get 'buyers/favorites'
+  get 'buyers/add_favorite/:id', to: 'buyers#add_favorite', as: 'add_favorite'
+  get 'buyers/remove_favorite/:id', to: 'buyers#remove_favorite', as: 'remove_favorite'
 
   get 'sellers/dashboard'
   get 'sellers/products'

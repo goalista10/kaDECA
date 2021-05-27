@@ -180,4 +180,4 @@
 # Default i18n key
 # Pagy::VARS[:i18n_key] = 'pagy.item_name'   # default
 require 'pagy/extras/bootstrap'
-Pagy::VARS[:items]     = 3
+Pagy::VARS[:items]     = 10
