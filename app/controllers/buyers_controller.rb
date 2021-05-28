@@ -1,6 +1,8 @@
 class BuyersController < ApplicationController
     def favorites
       if buyer_signed_in?
+        @count = current_buyer.products.count
+        @pagy, @records = pagy(current_buyer.products.order("name ASC, cost ASC"))
       else
           redirect_to "/buyers/sign_in"
       end
@@ -26,7 +28,7 @@ class BuyersController < ApplicationController
       if buyer_signed_in?
         current_buyer.favorites.where(product_id: params[:id]).destroy_all
         flash.notice = "Favorite Removed"
-        redirect_to "/buyers/favorites"
+        redirect_to request.referer
       else
           redirect_to "/buyers/sign_in"
       end

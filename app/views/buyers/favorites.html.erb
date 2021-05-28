@@ -10,7 +10,7 @@
 <section class="featured spad">
   <div class="container">
     <div class="row">
-      <%current_buyer.products.each do |product|%>
+      <%@records.each do |product|%>
         <div class="col-lg-3 col-md-4 col-sm-6">
           <div class="featured__item">
             <div class="featured__item__pic set-bg" data-setbg=<%=url_for(product.avatar)%>>
@@ -27,5 +27,6 @@
         </div>
       <%end%>
     </div>
+    <%= pagy_bootstrap_nav(@pagy).html_safe  %>
   </div>
 </section>
