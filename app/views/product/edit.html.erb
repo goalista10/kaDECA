@@ -41,6 +41,6 @@
       </div>
     <% end %>
     <p class="form-label">Current Photo</p>
-    <%= image_tag url_for(@to_be_updated.avatar) %>
+    <%= image_tag url_for(@to_be_updated.avatar.variant(resize_to_limit: [100, 100])) %>
   </div>
 </section>

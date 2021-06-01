@@ -8,7 +8,7 @@ class Seller < ApplicationRecord
   has_many :products, dependent: :destroy
   validates :name, presence: true
   validates :contact, presence: true
-  validates :block, presence: true
+  validates :blk, presence: true
   validates :lot, presence: true
   validates :fb, presence: true
 end

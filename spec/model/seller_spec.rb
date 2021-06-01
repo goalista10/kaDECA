@@ -6,7 +6,7 @@ RSpec.describe Seller, type: :model do
     it { is_expected.to validate_presence_of(:email) }
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_presence_of(:contact) }
-    it { is_expected.to validate_presence_of(:block) }
+    it { is_expected.to validate_presence_of(:blk) }
     it { is_expected.to validate_presence_of(:lot) }
     it { is_expected.to validate_presence_of(:fb) }
     it { is_expected.to have_many(:products) }

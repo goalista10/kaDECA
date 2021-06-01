@@ -5,7 +5,7 @@ FactoryBot.define do
         password { '123456' }
         name { 'seller' }
         contact { '123' }
-        block { '1' }
+        blk { '1' }
         lot { '2' }
         fb { 'facebook.com' }
     end
