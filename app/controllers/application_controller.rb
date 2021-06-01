@@ -33,9 +33,9 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if resource.to_s.include? 'dmin'
-      admin_dashboard_path
+      admin_announcements_path
     elsif resource.to_s.include? 'ell'
-      sellers_dashboard_path
+      sellers_products_path
     else
       root_path
     end

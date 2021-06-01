@@ -28,8 +28,9 @@
       </div>
       <div>
         <%= form.label "Picture Upload" ,class:"form-label"%>
-        <%= form.file_field :avatar ,class:"form-control-file"%>
+        <%= form.file_field :avatar ,class:"form-control-file", onchange:"readURL(this);"%>
       </div>
+      <img id="img_prev" src="#" alt="" />
       <div>
         <%= form.label :description ,class:"form-label"%>
         <%= form.text_area :description  ,class:"form-control", size: "70x5"%>
@@ -41,3 +42,20 @@
     <% end %>
   </div>
 </section>
+<!-- Assume jQuery is loaded -->
+<script>
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        $('#img_prev')
+          .attr('src', e.target.result)
+          .width(100)
+          .height(100);
+      };
+
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>

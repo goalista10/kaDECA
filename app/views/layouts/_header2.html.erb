@@ -3,9 +3,9 @@
 <div class="humberger__menu__wrapper">
   <div class="humberger__menu__logo">
     <%if admin_signed_in?%>
-      <a href="/admin/dashboard"><%= image_tag "logo.png" %></a>
+      <a href="/admin/announcements"><%= image_tag "logo.png" %></a>
     <%elsif seller_signed_in?%>
-      <a href="/sellers/dashboard"><%= image_tag "logo.png" %></a>
+      <a href="/sellers/products"><%= image_tag "logo.png" %></a>
     <%else%>
       <a href="/"><%= image_tag "logo.png" %></a>
     <%end%>
@@ -26,13 +26,10 @@
   <nav class="humberger__menu__nav mobile-menu">
     <%if seller_signed_in?%>
       <ul>
-        <li><%= link_to "Dashboard", sellers_dashboard_path %></li>
         <li><%= link_to "Products", sellers_products_path %></li>
-        <li><%= link_to "Transactions", sellers_transactions_path %></li>
       </ul>
     <%elsif admin_signed_in?%>
       <ul>
-        <li><%= link_to "Dashboard", admin_dashboard_path %></li>
         <li><%= link_to "Buyers", admin_buyers_path %></li>
         <li><%= link_to "Sellers", admin_sellers_path %></li>
         <li><%= link_to "Products", admin_products_path %></li>
@@ -122,9 +119,9 @@
       <div class="col-lg-3">
         <div class="header__logo">
           <%if admin_signed_in?%>
-            <a href="/admin/dashboard"><%= image_tag "logo.png" %></a>
+            <a href="/admin/announcements"><%= image_tag "logo.png" %></a>
           <%elsif seller_signed_in?%>
-            <a href="/sellers/dashboard"><%= image_tag "logo.png" %></a>
+            <a href="/sellers/products"><%= image_tag "logo.png" %></a>
           <%else%>
             <a href="/"><%= image_tag "logo.png" %></a>
           <%end%>
@@ -134,13 +131,10 @@
         <nav class="header__menu">
           <%if seller_signed_in?%>
             <ul>
-              <li><%= link_to "Dashboard", sellers_dashboard_path %></li>
               <li><%= link_to "Products", sellers_products_path %></li>
-              <li><%= link_to "Transactions", sellers_transactions_path %></li>
             </ul>
           <%elsif admin_signed_in?%>
             <ul>
-              <li><%= link_to "Dashboard", admin_dashboard_path %></li>
               <li><%= link_to "Buyers", admin_buyers_path %></li>
               <li><%= link_to "Sellers", admin_sellers_path %></li>
               <li><%= link_to "Products", admin_products_path %></li>

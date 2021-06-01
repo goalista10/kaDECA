@@ -17,16 +17,13 @@ Rails.application.routes.draw do
   get 'buyers/add_favorite/:id', to: 'buyers#add_favorite', as: 'add_favorite'
   get 'buyers/remove_favorite/:id', to: 'buyers#remove_favorite', as: 'remove_favorite'
 
-  get 'sellers/dashboard'
   get 'sellers/products'
-  get 'sellers/transactions'
   get 'sellers/add_product'
 
   get 'admin/buyers'
   get 'admin/sellers'
   get 'admin/announcements'
   get 'admin/products'
-  get 'admin/dashboard'
   get 'admin/add_announcement'
   delete 'admin/buyer/:id', to: 'admin#admin_buyer_delete', as: 'admin_buyer_delete'
   delete 'admin/seller/:id', to: 'admin#admin_seller_delete', as: 'admin_seller_delete'
