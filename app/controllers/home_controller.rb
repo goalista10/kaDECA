@@ -9,8 +9,8 @@ class HomeController < ApplicationController
         @count = Product.count
         @pagy, @records = pagy(Product.all.order('name ASC, cost ASC'))
       else
-        @products = Product.basic_search(params[:category])
-        @count = @products.length
+        @products = Product.where(category: params[:category])
+        @count = @products.count
         @pagy, @records = pagy(@products.order('name ASC, cost ASC'))
       end
     else

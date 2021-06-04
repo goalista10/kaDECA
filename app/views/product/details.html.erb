@@ -12,7 +12,7 @@
         <div class="product__details__text">
           <h3><%= @product.name%> </h3>
           <div class="product__details__price">₱<%=sprintf('%.2f', @product.cost)%> </div>
-          <p><%= @product.description%> </p>
+          <p style="white-space: pre-line"><%= @product.description%> </p>
           <a href=<%=@product.seller.fb%> class="primary-btn">Contact Seller</a>
           <ul>
             <li><b>Availability</b> <span><%= @product.availability%> </span></li>
