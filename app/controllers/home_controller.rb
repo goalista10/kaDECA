@@ -22,6 +22,8 @@ class HomeController < ApplicationController
 
   def about; end
 
+  def request_account_delete; end
+  
   def announcement
     if params[:category] == 'All'
       @pagy, @records = pagy(Announcement.all)

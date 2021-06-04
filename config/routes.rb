@@ -2,9 +2,9 @@
 
 Rails.application.routes.draw do
   devise_for :admins
-  devise_for :sellers
+  #devise_for :sellers
   devise_for :buyers
-
+  devise_for :sellers, controllers: { omniauth_callbacks: 'sellers/omniauth_callbacks' }
   resources :product 
   resources :announcement 
 
@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'home/shop/:category' , to: 'home#shop', as: 'home_shop'
   get 'home/announcement/:category', to: 'home#announcement', as: 'home_announcement'
   get 'home/deca'
+  get 'home/request_account_delete'
 
   get 'buyers/favorites'
   get 'buyers/add_favorite/:id', to: 'buyers#add_favorite', as: 'add_favorite'
