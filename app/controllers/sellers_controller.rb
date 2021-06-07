@@ -7,18 +7,6 @@ class SellersController < ApplicationController
     end
   end
 
-  def transactions
-    if not seller_signed_in?
-      redirect_to '/sellers/sign_in'
-    end
-  end
-
-  def dashboard
-    if not seller_signed_in?
-      redirect_to '/sellers/sign_in'
-    end
-  end
-
   def add_product
     if seller_signed_in?
       @model = current_seller.products.build
