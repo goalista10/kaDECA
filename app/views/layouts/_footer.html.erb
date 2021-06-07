@@ -5,7 +5,13 @@
       <div class="col-lg-3 col-md-6 col-sm-6">
         <div class="footer__about">
           <div class="footer__about__logo">
-            <a href="./index.html"><%= image_tag "logo2.png" %></a>
+            <%if admin_signed_in?%>
+              <a href="/admin/announcements"><%= image_tag "logo2.png" %></a>
+            <%elsif seller_signed_in?%>
+              <a href="/sellers/products"><%= image_tag "logo2.png" %></a>
+            <%else%>
+              <a href="/"><%= image_tag "logo2.png" %></a>
+            <%end%>
           </div>
           <ul>
 
