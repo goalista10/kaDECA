@@ -27,6 +27,7 @@
     <%if seller_signed_in?%>
       <ul>
         <li><%= link_to "Products", sellers_products_path %></li>
+        <li><%= link_to "Hidden", sellers_hidden_products_path %></li>
       </ul>
     <%elsif admin_signed_in?%>
       <ul>
@@ -132,6 +133,7 @@
           <%if seller_signed_in?%>
             <ul>
               <li><%= link_to "Products", sellers_products_path %></li>
+              <li><%= link_to "Hidden", sellers_hidden_products_path %></li>
             </ul>
           <%elsif admin_signed_in?%>
             <ul>

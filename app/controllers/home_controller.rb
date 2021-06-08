@@ -6,15 +6,16 @@ class HomeController < ApplicationController
   def shop
     if params[:search].nil?
       if params[:category] == 'All'
-        @count = Product.count
-        @pagy, @records = pagy(Product.all.order('name ASC, cost ASC'))
+        @products = Product.where(featured: 1)
+        @count = @products.count
+        @pagy, @records = pagy(@products.order('name ASC, cost ASC'))
       else
-        @products = Product.where(category: params[:category])
+        @products = Product.where(category: params[:category],featured: 1)
         @count = @products.count
         @pagy, @records = pagy(@products.order('name ASC, cost ASC'))
       end
     else
-      @products = Product.basic_search(params[:search])
+      @products = Product.where(featured: 1).basic_search(params[:search])
       @count = @products.length
       @pagy, @records = pagy(@products.order('name ASC, cost ASC'))
     end

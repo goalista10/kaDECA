@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 
   get 'sellers/products'
   get 'sellers/add_product'
+  get 'sellers/hidden_products'
+  get 'sellers/hide/:id', to: 'sellers#hide', as: 'hide'
+  get 'sellers/show/:id', to: 'sellers#show', as: 'show'
 
   get 'admin/buyers'
   get 'admin/sellers'
