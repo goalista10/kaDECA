@@ -18,6 +18,7 @@
           <th>Seller</th>
           <th>Blk</th>
           <th>Lot</th>
+          <th>Visible?</th>
           <th colspan="1"></th>
         </tr>
       </thead>
@@ -29,6 +30,7 @@
             <td><%= product.seller.name %></td>
             <td><%= product.seller.blk %></td>
             <td><%= product.seller.lot %></td>
+            <td><%= product.featured %></td>
             <td><%= link_to 'View', product_path(product.id),class:"btn btn-primary" %></td>
           </tr>
         <% end %>
