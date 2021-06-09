@@ -4,7 +4,11 @@ class AdminController < ApplicationController
 
   def buyers
     if admin_signed_in?
-      @pagy, @records = pagy(Buyer.all)
+      if params[:search].nil?
+        @pagy, @records = pagy(Buyer.all)
+      else
+        @pagy, @records = pagy(Buyer.basic_search(params[:search]))
+      end
     else
       redirect_to '/admins/sign_in'
     end
@@ -34,7 +38,11 @@ class AdminController < ApplicationController
 
   def sellers
     if admin_signed_in?
-      @pagy, @records = pagy(Seller.all)
+      if params[:search].nil?
+        @pagy, @records = pagy(Seller.all)
+      else
+        @pagy, @records = pagy(Seller.basic_search(params[:search]))
+      end
     else
       redirect_to '/admins/sign_in'
     end
@@ -42,7 +50,11 @@ class AdminController < ApplicationController
 
   def products
     if admin_signed_in?
-      @pagy, @records = pagy(Product.all)
+      if params[:search].nil?
+        @pagy, @records = pagy(Product.all)
+      else
+        @pagy, @records = pagy(Product.basic_search(params[:search]))
+      end
     else
       redirect_to '/admins/sign_in'
     end
@@ -50,9 +62,23 @@ class AdminController < ApplicationController
 
   def announcements
     if admin_signed_in?
-      @pagy, @records = pagy(Announcement.all)
+      if params[:search].nil?
+        @pagy, @records = pagy(Announcement.all)
+      else
+        @pagy, @records = pagy(Announcement.basic_search(params[:search]))
+      end
     else
       redirect_to '/admins/sign_in'
     end
+  end
+
+  def switch
+    @product = Product.find(params[:id])
+    if @product.featured == 1
+      @product.update(featured: 2)
+    else
+      @product.update(featured: 1)
+    end
+    redirect_to '/admin/products'
   end
 end

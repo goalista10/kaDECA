@@ -10,24 +10,31 @@
 
 <section class="featured spad">
   <div class="container">
-    <table class="table table-hover align-middle">
-      <thead>
+  <div class="sidebar__item">
+    <div class="blog__sidebar__search">
+      <%= form_with   url: "/admin/sellers", method: :get ,local: true do |form| %>
+      <%= form.text_field :search, placeholder: "Search..." ,class:"form-control" %>
+      <%end%>
+    </div>
+  </div>
+  <table class="table table-hover align-middle">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @records.order(:id).each do |seller| %>
         <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th colspan="1"></th>
+          <td><%= seller.name %></td>
+          <td><%= seller.email %></td>
+          <td><%= button_to "Delete", admin_seller_delete_path(seller.id), data: { confirm: "Are you sure?" }, method: :delete,class:"btn btn-danger" %></td>
         </tr>
-      </thead>
-      <tbody>
-        <% @records.order(:id).each do |seller| %>
-          <tr>
-            <td><%= seller.name %></td>
-            <td><%= seller.email %></td>
-            <td><%= button_to "Delete", admin_seller_delete_path(seller.id), data: { confirm: "Are you sure?" }, method: :delete,class:"btn btn-danger" %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= pagy_bootstrap_nav(@pagy).html_safe  %>
+      <% end %>
+    </tbody>
+  </table>
+  <%= pagy_bootstrap_nav(@pagy).html_safe  %>
   </div>
 </section>

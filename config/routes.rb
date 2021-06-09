@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'admin/announcements'
   get 'admin/products'
   get 'admin/add_announcement'
+  get 'admin/switch/:id', to: 'admin#switch', as: 'switch'
   delete 'admin/buyer/:id', to: 'admin#admin_buyer_delete', as: 'admin_buyer_delete'
   delete 'admin/seller/:id', to: 'admin#admin_seller_delete', as: 'admin_seller_delete'
 

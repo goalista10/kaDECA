@@ -49,6 +49,15 @@
     <%end%>
   </nav>
   <div id="mobile-menu-wrap"></div>
+  <div class="header__top__right__social">
+    <%if buyer_signed_in?%>
+      <a href="/buyers/edit" ><i class="fa fa-cog"></i> Account</a>
+    <% elsif seller_signed_in? %>
+      <a href="/sellers/edit"><i class="fa fa-cog"></i> Account</a>
+    <%else%>
+      <a href="https://www.facebook.com/groups/215617422979575/" target="_blank"><i class="fa fa-facebook"></i></a>
+    <%end%>
+  </div>
   <div class="humberger__menu__contact">
     <ul>
       <% if buyer_signed_in? %>
@@ -58,8 +67,7 @@
         <li><i class="fa fa-envelope"></i> <%= current_seller.email %>!</li>
         <li>Welcome <%= current_seller.name %></li>
       <% else  %>
-        <li><i class="fa fa-envelope"></i> kadeca@gmail.com</li>
-        <li>kaDECA, your one place marketplace!</li>
+        <li><i class="fa fa-shopping-basket"></i> kaDECA, your one place marketplace!</li>
       <%end%>
     </ul>
   </div>
@@ -82,8 +90,7 @@
                 <li><i class="fa fa-envelope"></i> <%= current_admin.email %></li>
                 <li> Welcome Admin!</li>
               <% else  %>
-                <li><i class="fa fa-envelope"></i> kadeca@gmail.com</li>
-                <li>kaDECA, your one place marketplace!</li>
+                <li><i class="fa fa-shopping-basket"></i> kaDECA, your one place marketplace!</li>
               <%end%>
             </ul>
           </div>
@@ -96,7 +103,7 @@
               <% elsif seller_signed_in? %>
                 <a href="/sellers/edit"><i class="fa fa-cog"></i> Account</a>
               <%else%>
-                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.facebook.com/groups/215617422979575/" target="_blank"><i class="fa fa-facebook"></i></a>
               <%end%>
             </div>
             <div class="header__top__right__auth">
