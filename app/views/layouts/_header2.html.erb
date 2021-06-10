@@ -41,7 +41,6 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Shop", home_shop_path("All") %></li>
         <li><%= link_to "Announcement", home_announcement_path("All") %></li>
-        <li><%= link_to "Deca", home_deca_path %></li>
         <%if buyer_signed_in?%>
           <li><%= link_to "Favorites", buyers_favorites_path %></li>
         <%end%>
@@ -154,7 +153,6 @@
               <li><%= link_to "Home", root_path %></li>
               <li><%= link_to "Shop", home_shop_path("All") %></li>
               <li><%= link_to "Announcement", home_announcement_path("All") %></li>
-              <li><%= link_to "DECA", home_deca_path %></li>
               <%if buyer_signed_in?%>
                 <li><%= link_to "Favorites", buyers_favorites_path %></li>
               <%end%>
