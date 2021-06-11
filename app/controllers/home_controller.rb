@@ -10,7 +10,7 @@ class HomeController < ApplicationController
         @count = @products.count
         @pagy, @records = pagy(@products.order('name ASC, cost ASC'))
       else
-        @products = Product.where(category: params[:category]).where.not(featured: 1)
+        @products = Product.where(category: params[:category]).where.not(featured: 0)
         @count = @products.count
         @pagy, @records = pagy(@products.order('name ASC, cost ASC'))
       end
